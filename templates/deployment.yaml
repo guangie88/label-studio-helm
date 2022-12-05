@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: label-studio
+  labels:
+    app: label-studio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: label-studio
+  template:
+    metadata:
+      labels:
+        app: label-studio
+    spec:
+      containers:
+      - name: label-studio
+        image: heartexlabs/label-studio:1.6.0
+        ports:
+        - containerPort: 8080
+        env:
+        # https://labelstud.io/guide/start.html#Run-Label-Studio-on-Docker-with-a-host-and-sub-path
+        # Note without docker-compose, this requires NGINX in-front to rewrite the path
+        - name: LABEL_STUDIO_HOST
+          value: "http://localhost:80/label-studio"
