@@ -1,0 +1,11 @@
+---
+ingress:
+  className: nginx
+  host: http://localhost:80
+  path: /label-studio
+
+deployment:
+  image:
+    name: heartexlabs/label-studio
+    tag: "1.6.0"
+  replicas: 1

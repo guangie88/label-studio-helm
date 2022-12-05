@@ -1,0 +1,7 @@
+.helmignore
+.gitignore
+.git
+.tgz
+LICENSE
+README.md
+charts/

@@ -2,11 +2,19 @@ apiVersion: v1
 entries:
   label-studio:
   - apiVersion: v2
-    created: "2022-12-05T17:11:12.689641337+08:00"
+    created: "2022-12-05T18:06:12.38845547+08:00"
     description: A Helm chart for Label Studio free edition.
-    digest: 42ed33fcf600115877697ece9050e40eda5f52a8d5981a2a8462aea54b9bf2fb
+    digest: 5854486f0d23a8a5b1e0c7a9bdb48b8cd9611a064e406a59a31f73abfd904b6b
+    name: label-studio
+    urls:
+    - charts/label-studio-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    created: "2022-12-05T18:06:12.388281286+08:00"
+    description: A Helm chart for Label Studio free edition.
+    digest: c3eafe57ae6ca5aaed39d0e8b95b1301d09343a58e32f49b749d0a2d9319fcd9
     name: label-studio
     urls:
     - charts/label-studio-0.0.1.tgz
     version: 0.0.1
-generated: "2022-12-05T17:11:12.686234882+08:00"
+generated: "2022-12-05T18:06:12.388061775+08:00"

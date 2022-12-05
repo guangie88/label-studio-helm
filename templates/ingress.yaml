@@ -6,14 +6,14 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
-  ingressClassName: nginx
+  ingressClassName: {{ .Values.ingress.className }}
   rules:
   - http:
       paths:
       # https://github.com/heartexlabs/label-studio/issues/1924#issuecomment-1022116206
       # https://github.com/kubernetes/ingress-nginx/blob/main/docs/examples/rewrite/README.md
       - pathType: Prefix
-        path: /label-studio(/|$)(.*)
+        path: {{ .Values.ingress.path }}(/|$)(.*)
         backend:
           service:
             name: label-studio

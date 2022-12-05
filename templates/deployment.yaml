@@ -6,7 +6,7 @@ metadata:
   labels:
     app: label-studio
 spec:
-  replicas: 1
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
       app: label-studio
@@ -17,11 +17,13 @@ spec:
     spec:
       containers:
       - name: label-studio
-        image: heartexlabs/label-studio:1.6.0
+        {{ with .Values.deployment.image -}}
+        image: {{ .name }}:{{ .tag }}
+        {{ end -}}
         ports:
         - containerPort: 8080
         env:
         # https://labelstud.io/guide/start.html#Run-Label-Studio-on-Docker-with-a-host-and-sub-path
         # Note without docker-compose, this requires NGINX in-front to rewrite the path
         - name: LABEL_STUDIO_HOST
-          value: "http://localhost:80/label-studio"
+          value: "{{ .Values.ingress.host }}{{ .Values.ingress.path }}"
