@@ -1,0 +1,29 @@
+{{ if not .Values.deployment.use_postgres -}}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: label-studio-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 3Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: label-studio-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 3Gi
+{{- end }}

@@ -15,6 +15,12 @@ spec:
       labels:
         app: label-studio
     spec:
+      {{ if not .Values.deployment.use_postgres -}}
+      volumes:
+      - name: label-studio-pv-storage
+        persistentVolumeClaim:
+          claimName: label-studio-pv-claim
+      {{- end }}
       containers:
       - name: label-studio
         {{ with .Values.deployment.image -}}
@@ -22,8 +28,33 @@ spec:
         {{ end -}}
         ports:
         - containerPort: 8080
+        {{ if not .Values.deployment.use_postgres -}}
+        volumeMounts:
+        - mountPath: /label-studio/data
+          name: label-studio-pv-storage
+        {{- end }}
         env:
         # https://labelstud.io/guide/start.html#Run-Label-Studio-on-Docker-with-a-host-and-sub-path
         # Note without docker-compose, this requires NGINX in-front to rewrite the path
         - name: LABEL_STUDIO_HOST
           value: "{{ .Values.ingress.host }}{{ .Values.ingress.path }}"
+        - name: LABEL_STUDIO_DISABLE_SIGNUP_WITHOUT_LINK
+          value: "{{ .Values.deployment.disable_signup_without_link }}"
+        - name: LABEL_STUDIO_USERNAME
+          value: "{{ .Values.deployment.default_username }}"
+        - name: LABEL_STUDIO_PASSWORD
+          value: "{{ .Values.deployment.default_password }}"
+        {{ if .Values.deployment.use_postgres -}}
+        - name: DJANGO_DB
+          value: default
+        - name: POSTGRE_NAME  # Database name
+          value: postgres
+        - name: POSTGRE_USER
+          value: postgres
+        - name: POSTGRE_PASSWORD
+          value: postgres
+        - name: POSTGRE_PORT
+          value: "5432"
+        - name: POSTGRE_HOST
+          value: label-studio-postgresql
+        {{- end }}

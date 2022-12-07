@@ -4,4 +4,6 @@
 .tgz
 LICENSE
 README.md
-charts/
+dist/
+data/
+exported/

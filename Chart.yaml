@@ -1,5 +1,9 @@
 ---
 apiVersion: v2
 name: label-studio
-version: 0.0.2
+version: 0.0.3
 description: A Helm chart for Label Studio free edition.
+dependencies:
+- name: postgresql
+  version: 12.1.3
+  repository: https://charts.bitnami.com/bitnami

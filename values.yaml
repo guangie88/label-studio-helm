@@ -9,3 +9,14 @@ deployment:
     name: heartexlabs/label-studio
     tag: "1.6.0"
   replicas: 1
+  disable_signup_without_link: true
+  default_username: admin@example.com
+  default_password: password123
+  use_postgres: true
+
+global:
+  postgresql:
+    auth:
+      postgresPassword: postgres  # Master password
+      username: postgres
+      password: postgres          # User password

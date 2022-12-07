@@ -1,2 +1,5 @@
 *.tgz
+!dist/*.tgz
 !charts/*.tgz
+data/
+exported/
