@@ -2,19 +2,19 @@ apiVersion: v1
 entries:
   label-studio:
   - apiVersion: v2
-    created: "2022-12-08T00:13:07.700303123+08:00"
+    created: "2023-04-20T17:55:50.126666903+08:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
       version: 12.1.3
     description: A Helm chart for Label Studio free edition.
-    digest: 023729202b0977243acf6396b442e6302d1d8161cd5f8f769bde20128eaeaaf5
+    digest: 70d7c6f0a2173d8bddf67b8b68d9d926866b19c88e29cc41dcde981f73c8620d
     name: label-studio
     urls:
     - dist/label-studio-0.0.3.tgz
     version: 0.0.3
   - apiVersion: v2
-    created: "2022-12-08T00:13:07.696520009+08:00"
+    created: "2023-04-20T17:55:50.123832563+08:00"
     description: A Helm chart for Label Studio free edition.
     digest: 5854486f0d23a8a5b1e0c7a9bdb48b8cd9611a064e406a59a31f73abfd904b6b
     name: label-studio
@@ -22,7 +22,7 @@ entries:
     - dist/label-studio-0.0.2.tgz
     version: 0.0.2
   - apiVersion: v2
-    created: "2022-12-08T00:13:07.696388566+08:00"
+    created: "2023-04-20T17:55:50.123721023+08:00"
     description: A Helm chart for Label Studio free edition.
     digest: c3eafe57ae6ca5aaed39d0e8b95b1301d09343a58e32f49b749d0a2d9319fcd9
     name: label-studio
@@ -34,7 +34,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 15.1.0
-    created: "2022-12-08T00:13:07.696279823+08:00"
+    created: "2023-04-20T17:55:50.123618311+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -64,4 +64,4 @@ entries:
     urls:
     - charts/postgresql-12.1.3.tgz
     version: 12.1.3
-generated: "2022-12-08T00:13:07.693176687+08:00"
+generated: "2023-04-20T17:55:50.119765353+08:00"
